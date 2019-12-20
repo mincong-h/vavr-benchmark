@@ -63,9 +63,6 @@ public class VectorBenchmark {
             , Fill.class
     );
 
-    @Test
-    public void testAsserts() { JmhRunner.runDebugWithAsserts(CLASSES); }
-
     public static void main(String... args) {
         JmhRunner.runDebugWithAsserts(CLASSES);
         JmhRunner.runNormalNoAsserts(CLASSES, JAVA, FUNCTIONAL_JAVA, PCOLLECTIONS, ECOLLECTIONS, CLOJURE, SCALA, VAVR);

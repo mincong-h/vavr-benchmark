@@ -36,9 +36,6 @@ public class LazyBenchmark {
             Get.class
     );
 
-    @Test
-    public void testAsserts() { JmhRunner.runDebugWithAsserts(CLASSES); }
-
     public static void main(String... args) {
         JmhRunner.runDebugWithAsserts(CLASSES, JAVA, VAVR);
         JmhRunner.runSlowNoAsserts(CLASSES, JAVA, VAVR);

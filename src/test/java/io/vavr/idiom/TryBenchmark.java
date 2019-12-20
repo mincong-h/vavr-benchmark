@@ -21,7 +21,6 @@ package io.vavr.idiom;
 
 import io.vavr.JmhRunner;
 import io.vavr.collection.Array;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -37,11 +36,6 @@ public class TryBenchmark {
     static final Array<Class<?>> CLASSES = Array(
             Try.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);

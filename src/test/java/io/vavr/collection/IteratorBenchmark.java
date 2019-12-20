@@ -38,9 +38,6 @@ public class IteratorBenchmark {
             Concat.class
     );
 
-    @Test
-    public void testAsserts() { JmhRunner.runDebugWithAsserts(CLASSES); }
-
     public static void main(String... args) {
         JmhRunner.runDebugWithAsserts(CLASSES);
         JmhRunner.runNormalNoAsserts(CLASSES, JAVA, SCALA, VAVR);
@@ -107,7 +104,7 @@ public class IteratorBenchmark {
             final scala.collection.Iterator<Integer> iterator = scala.collection.Iterator.range(0, size)
                     .foldLeft((scala.collection.Iterator<Integer>) (Object) scala.collection.Iterator.empty(),
                     (result, i) -> result.$plus$plus(() -> scala.collection.Iterator.single(1)));
-            
+
             long sum = 0;
             while (iterator.hasNext()) {
                 sum += iterator.next();

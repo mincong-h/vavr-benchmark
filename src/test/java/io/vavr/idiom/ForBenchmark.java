@@ -46,11 +46,6 @@ public class ForBenchmark {
             For.class
     );
 
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
-
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);
     }

@@ -21,14 +21,9 @@ package io.vavr.idiom;
 
 import io.vavr.JmhRunner;
 import io.vavr.collection.Array;
-import org.junit.Test;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.infra.Blackhole;
-
 import java.util.Random;
+import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.infra.Blackhole;
 
 import static io.vavr.API.*;
 
@@ -38,15 +33,10 @@ import static io.vavr.API.*;
  * @see For2
  */
 public class PatternMatchingBenchmark {
-    
+
     static final Array<Class<?>> CLASSES = Array(
             MatchVsSwitchIntValues.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);
@@ -63,7 +53,7 @@ public class PatternMatchingBenchmark {
             final int CASES = 5;
             VALUES = Array.range(0, INSTANCES).map(i -> new Random(0).nextInt(CASES)).toJavaStream().mapToInt(i -> i).toArray();
         }
-        
+
         @Benchmark
         public void java_switch(Blackhole bh) {
             for (int i : VALUES) {
